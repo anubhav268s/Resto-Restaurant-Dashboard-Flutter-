@@ -91,7 +91,15 @@ For questions or help, open an issue or contact the maintainers.
 _Generated README — update details (bundle ID, repo URL, license) as needed._
 
 ## Screenshots
+
 ### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
 ### Earnings
+![Earnings](screenshots/earnings.png)
+
 ### Filters
+![Filters](screenshots/filters.png)
+
 ### Mobile View
+![Mobile View](screenshots/mobile-view.png)
