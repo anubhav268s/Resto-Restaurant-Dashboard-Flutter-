@@ -102,4 +102,4 @@ _Generated README — update details (bundle ID, repo URL, license) as needed._
 ![Filters](screenshots/filters.png)
 
 ### Mobile View
-![Mobile View](screenshots/mobile-view.png)
+![Mobile View](screenshots/mobile-views.png)
