@@ -80,15 +80,13 @@ Please follow the existing code style and add changelog notes for notable update
 
 ## License
 
-Add a `LICENSE` file to indicate the project license (e.g., MIT). Currently proprietary by default.
+This project is licensed under the MIT License.
+
+Copyright (c) 2026 Anubhav Sharma
 
 ## Contact
 
-For questions or help, open an issue or contact the maintainers.
-
----
-
-_Generated README — update details (bundle ID, repo URL, license) as needed._
+For questions or freelance inquiries, contact Anubhav Sharma or open an issue in this repository.
 
 ## Screenshots
 
