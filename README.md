@@ -90,3 +90,8 @@ For questions or help, open an issue or contact the maintainers.
 
 _Generated README — update details (bundle ID, repo URL, license) as needed._
 
+## Screenshots
+### Dashboard
+### Earnings
+### Filters
+### Mobile View
