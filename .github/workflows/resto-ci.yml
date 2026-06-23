@@ -1,0 +1,72 @@
+name: Resto CI/CD Pipeline
+
+# Trigger the workflow when code is pushed to the main branch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # ==========================================
+  # JOB 1: Build Android APK
+  # ==========================================
+  build_android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.11.3'
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Run Tests
+        run: flutter test
+
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      # Save the APK so you can download it from GitHub
+      - name: Upload Android Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: resto-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+  # ==========================================
+  # JOB 2: Build iOS App
+  # ==========================================
+  build_ios:
+    name: Build iOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.11.3'
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Build iOS (No Codesign)
+        # Using --no-codesign because we haven't set up Apple certificates yet
+        run: flutter build ios --release --no-codesign
